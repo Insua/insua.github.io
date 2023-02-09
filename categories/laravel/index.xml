@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Laravel on 代码如歌</title><link>https://insua.github.io/categories/laravel/</link><description>Recent content in Laravel on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 13 May 2017 10:22:57 +0000</lastBuildDate><atom:link href="https://insua.github.io/categories/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>valet-linux的github地址
+valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1
+那么就直接用dnsmasq了
+$ sudo vim /etc/dnsmasq.conf 修改listen-address和address
+listen-address=127.0.0.1 address=/app/127.0.0.1 address=/dev/192.168.10.10 指向dev的是homestead的ip,valet的默认domain修改为app
+修改 /etc/resolv.conf 将
+nameserver 127.0.0.1 加到最上面
+使用
+$ sudo chattr +i /etc/resolv.conf 为其加锁，最后别忘了用systemd将dnsmasq自动启动
+$ sudo systemctl enable dnsmasq valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常</description></item></channel></rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>laravel on 代码如歌</title><link>https://insua.github.io/tags/laravel/</link><description>Recent content in laravel on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 Nov 2018 17:43:17 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>使用Route macro来定义Route的新方法</title><link>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</link><pubDate>Tue, 06 Nov 2018 17:43:17 +0000</pubDate><guid>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</guid><description>使用 Laravel 在做后台表单操作时，通常会增加一个批量删除的功能 起初是在 route 里定义一个新的 delete
+Route::delete(&amp;#39;prefix/destroy-selection&amp;#39;, &amp;#39;CurrentController@destroySelection); 之后再定义 apiResource
+Route::apiResource(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;); 这样写十分啰嗦且冗长，Laravel 的强大之处就是它提供了 Macro 来扩展功能
+在 AppServiceProvider 的 boot 方法里加入
+Route::macro(&amp;#39;full&amp;#39;,function ($prefix, $controller){ Route::delete($prefix.&amp;#39;/destroy-selection&amp;#39;, $controller.&amp;#39;@destroySelection&amp;#39;)-&amp;gt;name($prefix.&amp;#39;destroy-selection&amp;#39;); Route::apiResource($prefix, $controller); }); 之后在 route 里就可以直接使用 full 来定义了
+Route::full(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;);</description></item><item><title>laravel echo server 结合 jwt 授权</title><link>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</link><pubDate>Thu, 17 May 2018 19:59:24 +0000</pubDate><guid>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</guid><description>首先，因为重写了 axios 的拦截器，为了确保 socket 消息头的引入，在 axios 拦截器中中加入
+if(window.Echo) { let socketId = window.Echo.socketId() if (socketId) { request.headers.common[&amp;#39;X-Socket-Id&amp;#39;] = socketId } } 然后，修改BroadcastServiceprovider，修改认证路由为api模组
+Broadcast::routes([&amp;#34;prefix&amp;#34; =&amp;gt; &amp;#34;api&amp;#34;, &amp;#34;middleware&amp;#34; =&amp;gt; &amp;#34;api&amp;#34;]); 最后，在 laravel-echo-server.json 中确保认证路由的正确
+{ &amp;#34;authHost&amp;#34;: &amp;#34;http://dev.test&amp;#34;, &amp;#34;authEndpoint&amp;#34;: &amp;#34;/api/broadcasting/auth&amp;#34; } 同时，在 Laravel Echo中加入token认证
+import Cookies from &amp;#39;js-cookie&amp;#39; let token = Cookies.get(&amp;#39;token&amp;#39;) window.Echo = new Echo({ broadcaster: &amp;#39;socket.io&amp;#39;, host: process.env.MIX_ECHO_SERVER, auth: { headers: { &amp;#39;Authorization&amp;#39;: &amp;#39;Bearer &amp;#39; + token } } }) 好了，我们现在可以愉快的使用 laravel 发送广播了，私有频道在 routes/channels.</description></item><item><title>Laravel Elixir使用webpack打包只引入moment.js的中文语言包</title><link>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</link><pubDate>Thu, 08 Feb 2018 09:21:58 +0000</pubDate><guid>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</guid><description>方法是使用webpack内置的ContextReplacementPlugin插件
+修改_gulpfile.js_
+先引入webpack
+const webpack = require(&amp;#39;webpack&amp;#39;) 增加自定义webpack配置
+elixir(mix =&amp;gt; { Elixir.webpack.mergeConfig({ plugins: [ new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/) ] }); 之后运行
+gulp 会发现打包之后的js会明显变小</description></item><item><title>Laravel 执行定时任务时的url域名</title><link>https://insua.github.io/post/2018/01-30-laravel-console-domain/</link><pubDate>Tue, 30 Jan 2018 22:22:30 +0000</pubDate><guid>https://insua.github.io/post/2018/01-30-laravel-console-domain/</guid><description>在laravel开发时，我最常用的url函数是route，因为根据route函数生成的url如果命名路由写错了那么直接会报错，这样有问题能早发现。 在生成定时任务的时候，在console里，我也写了route，但是推送到用户的地址却是localhost，这可太奇怪了，于是翻了laravel的源代码
+laravel/framework/src/Illuminate/Foundation/Bootstrap/SetRequestForConsole.php
+public function bootstrap(Application $app) { $url = $app-&amp;gt;make(&amp;#39;config&amp;#39;)-&amp;gt;get(&amp;#39;app.url&amp;#39;, &amp;#39;http://localhost&amp;#39;); $app-&amp;gt;instance(&amp;#39;request&amp;#39;, Request::create($url, &amp;#39;GET&amp;#39;, [], [], [], $_SERVER)); } 原来是因为走定时器任务时是在命令行里执行的，laravel无法根据用户的输入而得到域名，那么就必须读取配置文件了 当然在 .env里定义是最佳实践了</description></item><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>valet-linux的github地址
+valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1
+那么就直接用dnsmasq了
+$ sudo vim /etc/dnsmasq.conf 修改listen-address和address
+listen-address=127.0.0.1 address=/app/127.0.0.1 address=/dev/192.168.10.10 指向dev的是homestead的ip,valet的默认domain修改为app
+修改 /etc/resolv.conf 将
+nameserver 127.0.0.1 加到最上面
+使用
+$ sudo chattr +i /etc/resolv.conf 为其加锁，最后别忘了用systemd将dnsmasq自动启动
+$ sudo systemctl enable dnsmasq valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常</description></item><item><title>开发Laravel时必备的三个包</title><link>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</link><pubDate>Tue, 17 Jan 2017 21:16:46 +0000</pubDate><guid>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</guid><description>barryvdh/laravel-debugbar 作用是页面底部显示丰富的调试信息
+安装
+$ composer require barryvdh/laravel-debugbar config/app.php注册ServerProvider
+Barryvdh\Debugbar\ServiceProvider::class, 增加Facades
+&amp;#39;Debugbar&amp;#39; =&amp;gt; Barryvdh\Debugbar\Facade::class, barryvdh/laravel-ide-helper 生成一个php文件，为IDE提供更好的支持
+安装
+$ composer require barryvdh/laravel-ide-helper config/app.php注册ServerProvider
+Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, 使用
+如果使用的是Homestead，ssh登录虚拟机后，在虚拟机执行，否则会找不到数据库而报错
+sven/artisan-view 使用artisan命令生成视图文件
+安装
+$ composer require sven/artisan-view config/app.php注册ServerProvider
+Sven\ArtisanView\ArtisanViewServiceProvider::class, 使用
+生成视图
+$ php artisan make:view index 生成目录下的视图
+$ php artisan make:view pages.index</description></item></channel></rss>

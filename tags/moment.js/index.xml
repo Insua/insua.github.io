@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>moment.js on 代码如歌</title><link>https://insua.github.io/tags/moment.js/</link><description>Recent content in moment.js on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 08 Feb 2018 09:21:58 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/moment.js/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel Elixir使用webpack打包只引入moment.js的中文语言包</title><link>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</link><pubDate>Thu, 08 Feb 2018 09:21:58 +0000</pubDate><guid>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</guid><description>方法是使用webpack内置的ContextReplacementPlugin插件
+修改_gulpfile.js_
+先引入webpack
+const webpack = require(&amp;#39;webpack&amp;#39;) 增加自定义webpack配置
+elixir(mix =&amp;gt; { Elixir.webpack.mergeConfig({ plugins: [ new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/) ] }); 之后运行
+gulp 会发现打包之后的js会明显变小</description></item></channel></rss>

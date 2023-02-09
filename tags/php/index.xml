@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>php on 代码如歌</title><link>https://insua.github.io/tags/php/</link><description>Recent content in php on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 17 Jan 2017 21:16:46 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/php/index.xml" rel="self" type="application/rss+xml"/><item><title>开发Laravel时必备的三个包</title><link>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</link><pubDate>Tue, 17 Jan 2017 21:16:46 +0000</pubDate><guid>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</guid><description>barryvdh/laravel-debugbar 作用是页面底部显示丰富的调试信息
+安装
+$ composer require barryvdh/laravel-debugbar config/app.php注册ServerProvider
+Barryvdh\Debugbar\ServiceProvider::class, 增加Facades
+&amp;#39;Debugbar&amp;#39; =&amp;gt; Barryvdh\Debugbar\Facade::class, barryvdh/laravel-ide-helper 生成一个php文件，为IDE提供更好的支持
+安装
+$ composer require barryvdh/laravel-ide-helper config/app.php注册ServerProvider
+Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, 使用
+如果使用的是Homestead，ssh登录虚拟机后，在虚拟机执行，否则会找不到数据库而报错
+sven/artisan-view 使用artisan命令生成视图文件
+安装
+$ composer require sven/artisan-view config/app.php注册ServerProvider
+Sven\ArtisanView\ArtisanViewServiceProvider::class, 使用
+生成视图
+$ php artisan make:view index 生成目录下的视图
+$ php artisan make:view pages.index</description></item></channel></rss>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Arch Linux on 代码如歌</title><link>https://insua.github.io/tags/arch-linux/</link><description>Recent content in Arch Linux on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 05 Feb 2017 20:40:15 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/arch-linux/index.xml" rel="self" type="application/rss+xml"/><item><title>AUR打包成pkg</title><link>https://insua.github.io/post/2017/02-05-arch-make-pkg/</link><pubDate>Sun, 05 Feb 2017 20:40:15 +0000</pubDate><guid>https://insua.github.io/post/2017/02-05-arch-make-pkg/</guid><description>大多数情况下，我们都是使用yaourt等AUR包管理工具来安装、更新AUR包，不过有些时候在网络条件比较差的情况下，源文件下载特别慢而build失败，我们先把PKGBUILD下载到本地
+$ yaourt -G pkg-name $ cd pkg-name 查看PKGBUILD
+$ vim PKGBUILD 在找到源码的地址后，可以使用下载工具将源码下载或克隆到本地，修改源码地址，之后编译生成pkg包
+$ makepkg 编译、打包完成后，在目录下会生成pkg-name-version-arch.pkg.tar.xz
+直接安装到本机的话，执行命令
+$ sudo pacman -U pkg-name-version-arch.pkg.tar.xz</description></item></channel></rss>
