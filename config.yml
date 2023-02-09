@@ -1,0 +1,9 @@
+baseURL: https://insua.github.io/
+languageCode: en-us
+defaultContentLanguage: zh
+title: 代码如歌
+theme: PaperMod
+taxonomies:
+  tag: "tags"
+  series: "series"
+  category:  "categories"
