@@ -63,7 +63,7 @@ free -h
 ```
 #### 7.安装系统
 ```shell
-pacstrap /mnt base base-devel linux linux-firmware btrfs-progs
+pacstrap /mnt base base-devel linux linux-firmware
 pacstrap /mnt dhcpcd iwd vim bash-completion
 ```
 #### 8.生成fstab
@@ -152,10 +152,10 @@ pacman -Syu # 升级系统中全部包
 ```
 #### 2.新建普通用户
 ```shell
-useradd -m -G wheel -s /bin/bash insua
+useradd -m -G wheel -s /bin/bash username
 ```
 ```shell
-useradd -m -G wheel -s /bin/bash insua
+useradd -m -G wheel -s /bin/bash username
 ```
 首页sudo权限
 ```shell
@@ -225,5 +225,5 @@ systemctl enable lightdm
 ```
 安装常用软件
 ```shell
-pacman -S noto-fonts-cjk noto-fonts-emoji ttf-dejavu wqy-zenhei wqy-microhei file-roller unrar unace unzip p7zip
+pacman -S noto-fonts-cjk noto-fonts-emoji wqy-zenhei wqy-microhei file-roller unrar unace unzip p7zip
 ```
