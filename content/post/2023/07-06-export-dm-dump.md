@@ -14,3 +14,11 @@ tags:
 - pass: 密码
 - schema: 模式
 - dir: 导出目录
+
+同样 导入的时候 也使用类似的命令
+```shell
+./dimp user/pass@ip FILE=dexp.dmp DIRECTORY=dir SCHEMAS=schema
+```
+参数解释:
+dexp.dmp: 导出数据文件名  
+其余同上
