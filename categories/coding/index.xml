@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Coding on 代码如歌</title><link>https://insua.github.io/categories/coding/</link><description>Recent content in Coding on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 06 Sep 2017 20:38:46 +0000</lastBuildDate><atom:link href="https://insua.github.io/categories/coding/index.xml" rel="self" type="application/rss+xml"/><item><title>用wakatime来统计coding信息</title><link>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</link><pubDate>Wed, 06 Sep 2017 20:38:46 +0000</pubDate><guid>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</guid><description>wakatime的主页
-目前支持绝大部分主流的编辑器和IDE 我把phpstorm、vim、datagrip、sublime和zsh都装上了wakatime的插件
-装完了之后，就啥也不用管了，wakatime会自动把你的coding信息传到他的服务器，然后做成漂亮的图表来展示 他还有一个coding time的排行榜 蛤，我在哪？ 每个人的主页上，会详细展示语言、编辑器和操作系统使用时间的百分比 比如 我的主页</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Coding on 代码如歌</title><link>https://insua.github.io/categories/coding/</link><description>Recent content in Coding on 代码如歌</description><generator>Hugo -- 0.141.0</generator><language>en-us</language><lastBuildDate>Wed, 06 Sep 2017 20:38:46 +0000</lastBuildDate><atom:link href="https://insua.github.io/categories/coding/index.xml" rel="self" type="application/rss+xml"/><item><title>用wakatime来统计coding信息</title><link>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</link><pubDate>Wed, 06 Sep 2017 20:38:46 +0000</pubDate><guid>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</guid><description>&lt;p>wakatime的&lt;a href="https://wakatime.com">主页&lt;/a>&lt;br>
+目前支持绝大部分主流的编辑器和IDE
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8elxairgj20p90h9gpj.jpg">
+我把phpstorm、vim、datagrip、sublime和zsh都装上了wakatime的插件&lt;br>
+装完了之后，就啥也不用管了，wakatime会自动把你的coding信息传到他的服务器，然后做成漂亮的图表来展示
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eou4bxwj21b50g4762.jpg">
+他还有一个coding time的排行榜
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eqii8u6j216g0fxn0i.jpg">
+蛤，我在哪？
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eri873qj210i03fjs0.jpg">
+每个人的主页上，会详细展示语言、编辑器和操作系统使用时间的百分比
+比如 &lt;a href="https://wakatime.com/@Xeneizes">我的主页&lt;/a>
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8etrzyp7j20zn0oywhv.jpg">&lt;/p></description></item></channel></rss>

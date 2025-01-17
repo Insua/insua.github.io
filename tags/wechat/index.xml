@@ -1,7 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Wechat on 代码如歌</title><link>https://insua.github.io/tags/wechat/</link><description>Recent content in Wechat on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 Oct 2018 11:44:54 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/wechat/index.xml" rel="self" type="application/rss+xml"/><item><title>如何在 Vue Spa 中使用微信jssdk分享接口</title><link>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</link><pubDate>Tue, 09 Oct 2018 11:44:54 +0000</pubDate><guid>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</guid><description>在Vue Spa项目中，使用了 History 模式，要使用分享接口，只能在第一次访问的时候，就加载jssdk配置，通过Vue router进入其他页面之后再做加载，虽然在调试模式下依然会显示配置正确，但是分享接口是无效的，那么怎么办呢？直接在App.vue下就做jssdk config
-实现步骤 编写后端接口 使用了 overture/wechat
-public function jssdk(Request $request) { $this-&amp;gt;jssdk-&amp;gt;setUrl($request-&amp;gt;input(&amp;#39;url&amp;#39;)); return $this-&amp;gt;jssdk-&amp;gt;buildConfig([ &amp;#39;onMenuShareAppMessage&amp;#39;, &amp;#39;onMenuShareWechat&amp;#39;, &amp;#39;onMenuShareTimeline&amp;#39;, &amp;#39;getLocation&amp;#39; ], false); } 在App.vue中注入配置 引入wexin-js-sdk
-const wx = require(&amp;#39;weixin-js-sdk&amp;#39;) 方法
-async getJssdk () { const { data } = await this.$axios.post(&amp;#39;/api/wechat-work/jssdk&amp;#39;, { url: window.location.href }) wx.config(data) } 在分享页面中编写分享方法 引入wexin-js-sdk
-const wx = require(&amp;#39;weixin-js-sdk&amp;#39;) 在__mounted__里写入分享方法
-wx.ready(() =&amp;gt; { const self = this wx.onMenuShareTimeline({ title: self.shareTitle, link: window.location.href, imgUrl: self.logoPath, success: function () { self.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Wechat on 代码如歌</title><link>https://insua.github.io/tags/wechat/</link><description>Recent content in Wechat on 代码如歌</description><generator>Hugo -- 0.141.0</generator><language>en-us</language><lastBuildDate>Tue, 09 Oct 2018 11:44:54 +0000</lastBuildDate><atom:link href="https://insua.github.io/tags/wechat/index.xml" rel="self" type="application/rss+xml"/><item><title>如何在 Vue Spa 中使用微信jssdk分享接口</title><link>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</link><pubDate>Tue, 09 Oct 2018 11:44:54 +0000</pubDate><guid>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</guid><description>&lt;p>在Vue Spa项目中，使用了 History 模式，要使用分享接口，只能在第一次访问的时候，就加载jssdk配置，通过Vue router进入其他页面之后再做加载，虽然在调试模式下依然会显示配置正确，但是分享接口是无效的，那么怎么办呢？直接在App.vue下就做jssdk config&lt;/p>
+&lt;h3 id="实现步骤">实现步骤&lt;/h3>
+&lt;h4 id="编写后端接口">编写后端接口&lt;/h4>
+&lt;p>使用了 overture/wechat&lt;/p>
+&lt;pre tabindex="0">&lt;code>public function jssdk(Request $request)
+{
+$this-&amp;gt;jssdk-&amp;gt;setUrl($request-&amp;gt;input(&amp;#39;url&amp;#39;));
+return $this-&amp;gt;jssdk-&amp;gt;buildConfig([
+&amp;#39;onMenuShareAppMessage&amp;#39;,
+&amp;#39;onMenuShareWechat&amp;#39;,
+&amp;#39;onMenuShareTimeline&amp;#39;,
+&amp;#39;getLocation&amp;#39;
+], false);
+}
+&lt;/code>&lt;/pre>&lt;h4 id="在appvue中注入配置">在App.vue中注入配置&lt;/h4>
+&lt;p>引入wexin-js-sdk&lt;/p>
+&lt;pre tabindex="0">&lt;code>const wx = require(&amp;#39;weixin-js-sdk&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>方法&lt;/p>
+&lt;pre tabindex="0">&lt;code>async getJssdk () {
+const { data } = await this.$axios.post(&amp;#39;/api/wechat-work/jssdk&amp;#39;, { url: window.location.href })
+wx.config(data)
+}
+&lt;/code>&lt;/pre>&lt;h4 id="在分享页面中编写分享方法">在分享页面中编写分享方法&lt;/h4>
+&lt;p>引入wexin-js-sdk&lt;/p>
+&lt;pre tabindex="0">&lt;code>const wx = require(&amp;#39;weixin-js-sdk&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>在__mounted__里写入分享方法&lt;/p>
+&lt;pre tabindex="0">&lt;code>wx.ready(() =&amp;gt; {
+const self = this
+wx.onMenuShareTimeline({
+title: self.shareTitle,
+link: window.location.href,
+imgUrl: self.logoPath,
+success: function () {
+self.forward(&amp;#39;onMenuShareTimeline&amp;#39;)
+self.$toast.success(&amp;#39;分享成功&amp;#39;)
+},
+cancel: function () {
+self.$toast.fail(&amp;#39;取消分享&amp;#39;)
+}
+})
+})
+&lt;/code>&lt;/pre>&lt;p>最后在__destroyed__里重写分享方法，以终止分享接口&lt;/p></description></item></channel></rss>

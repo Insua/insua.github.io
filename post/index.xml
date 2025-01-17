@@ -1,110 +1,350 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on 代码如歌</title><link>https://insua.github.io/post/</link><description>Recent content in Posts on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 12 Jun 2024 15:34:27 +0800</lastBuildDate><atom:link href="https://insua.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Systemd Proxy</title><link>https://insua.github.io/post/2024/06-12-docker-systemd-proxy/</link><pubDate>Wed, 12 Jun 2024 15:34:27 +0800</pubDate><guid>https://insua.github.io/post/2024/06-12-docker-systemd-proxy/</guid><description>当前 docker 的镜像源全部都挂了.
-目前唯一的方法就是使用代理来拉取镜像.
-vim /etc/systemd/system/docker.service.d/http-proxy.conf 然后写入
-[Service] Environment=&amp;#34;HTTP_PROXY=socks5://127.0.0.1:7890/&amp;#34; Environment=&amp;#34;HTTPS_PROXY=socks5://127.0.0.1:7890/&amp;#34; Environment=&amp;#34;NO_PROXY=localhost,127.0.0.1&amp;#34; 之后重启 docker
-systemctl daemon-reload systemctl restart docker 之后无论是 docker pull 还是 docker-compose build 就都可以通过代理拉取镜像了.</description></item><item><title>弃长安读后</title><link>https://insua.github.io/post/2024/03-21-lost-changan-after-reading/</link><pubDate>Thu, 21 Mar 2024 09:19:14 +0800</pubDate><guid>https://insua.github.io/post/2024/03-21-lost-changan-after-reading/</guid><description>总体是非常流畅的，没有多少的凝滞感，缺点是有些词过于现代和网络，与历史的基调太过不符。
-因为对安史之乱前期的历史，过于了解，没有太多的新鲜感，而且太过于集中帝王将相。
-穿插的李白、杜甫、王维、高适的诗人的历史还是很好的，但是不足，如果是能专门写诗人在这个历史时刻的各种故事就好了，比较李隆基、安禄山、杨国忠的故事太多了。</description></item><item><title>为什么会有这么荒诞、沙雕而又这么好玩的游戏</title><link>https://insua.github.io/post/2023/08-14-how-could-there-be-such-ridiculous-and-funny-game/</link><pubDate>Mon, 14 Aug 2023 10:39:19 +0800</pubDate><guid>https://insua.github.io/post/2023/08-14-how-could-there-be-such-ridiculous-and-funny-game/</guid><description>无主之地3最让人眼花缭乱的就是各种各样的枪支，不仅射击手感一流，而且刷词缀系统，让它的枪支系统更是丰富多彩。
-打了一个boss或是开启秘藏之后，五颜六色的闪光冒一堆，能不让人兴奋大呼吗？
-无主之地的剧情是荒诞不经的，也正是因为荒诞，所以一切不合理的剧情与设定也就不让人去挑剔了，就像没有人去用分析力学的力量去挑汤姆和杰瑞。
-无主之地还有最接地气的一点就是他的本地化中文配音，演绎的非常接近各个人物的个性。</description></item><item><title>stray 噱头大于乐趣</title><link>https://insua.github.io/post/2023/07-12-stray-more-gimmick-less-fun/</link><pubDate>Wed, 12 Jul 2023 08:58:34 +0800</pubDate><guid>https://insua.github.io/post/2023/07-12-stray-more-gimmick-less-fun/</guid><description>stray 的设定是相当有趣的，以一只橘猫为完全的主角，在这里动物不是伙伴而是唯一的可操作角色。
-stray 也正是靠着这一点，而去吸引了玩家入手。
-但是这款也有巨大的缺陷。
-使用猫的视角去操作，主要的动作是跳跃和触碰质量轻的东西。跳跃只能按照猫的活动能力去规划，但是能跳跃的各类游戏太多了，这点无法给人以另类感。习惯了人类主角的，在某些解密的场景下，从狭小的空间猫可以穿越，这点很特别，能给人惊喜。
-stray 最大的问题是剧情简直寡淡如水，无法给人任何惊喜。
-只能说以接近现实的动物为主角的游戏还需要探索。</description></item><item><title>Use Commitizen With Emoji to Format Git Message</title><link>https://insua.github.io/post/2023/07-11-use-commitizen-with-emoji-to-format-git-message/</link><pubDate>Tue, 11 Jul 2023 10:55:49 +0800</pubDate><guid>https://insua.github.io/post/2023/07-11-use-commitizen-with-emoji-to-format-git-message/</guid><description>Global install commitizen with npm
-npm install -g commitizen Global install cz-emoji
-npm install -g cz-emoji Set cz-emoji as default adapter
-echo &amp;#39;{ &amp;#34;path&amp;#34;: &amp;#34;cz-emoji&amp;#34; }&amp;#39; &amp;gt; ~/.czrc Use git cz instead of git commit to edit git commit message</description></item><item><title>命令行导出达梦备份文件</title><link>https://insua.github.io/post/2023/07-06-export-dm-dump/</link><pubDate>Thu, 06 Jul 2023 17:50:40 +0800</pubDate><guid>https://insua.github.io/post/2023/07-06-export-dm-dump/</guid><description>必须进入到达梦的 bin 目录下执行 否则会找不到 so 文件
-命令如下:
-./dexp USERID=user/pass@ip SCHEMAS=schema DIRECTORY=dir 参数解释:
-user: 用户 pass: 密码 schema: 模式 dir: 导出目录 同样 导入的时候 也使用类似的命令
-./dimp user/pass@ip FILE=dexp.dmp DIRECTORY=dir SCHEMAS=schema 参数解释: dexp.dmp: 导出数据文件名
-其余同上</description></item><item><title>2023.7 Archlinux 安装教程</title><link>https://insua.github.io/post/2023/07-05-install-arch/</link><pubDate>Wed, 05 Jul 2023 11:31:00 +0800</pubDate><guid>https://insua.github.io/post/2023/07-05-install-arch/</guid><description>一 基础安装 1.禁用reflector systemctl stop reflector.service 2.确认是否为UEFI模式 ls /sys/firmware/efi/efivars 如果有输出则为UEFI模式
-3.更新系统时钟 timedatectl set-ntp true # 将系统时间与网络时间进行同步 timedatectl status # 检查服务状态 4.更新镜像源 vim /etc/pacman.d/mirrorlist 在最上面添加
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch # 清华大学开源软件镜像站 5.分区与格式化 转换磁盘为 gpt 类型
-lsblk #显示分区情况 找到你想安装的磁盘名称 parted /dev/nvmexn1 #执行parted，进入交互式命令行，进行磁盘类型变更 (parted)mktable #输入mktable New disk label type? gpt #输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可 quit #最后quit退出parted命令行交互 EFI分区: /efi 1G
-Swap分区: 32G
-/分区：剩余
-cfdisk /dev/nvmexn1 # 对安装 archlinux 的磁盘分区 查看分区
-fdisk -l 格式化
-mkswap /dev/nvmexn1pn mkfs.ext4 /dev/nvmexn1pn mkfs.</description></item><item><title>How tlou1 is better than tlou2</title><link>https://insua.github.io/post/2023/03-13-how-tlou1-is-better-than-tlou2/</link><pubDate>Mon, 13 Mar 2023 09:55:27 +0800</pubDate><guid>https://insua.github.io/post/2023/03-13-how-tlou1-is-better-than-tlou2/</guid><description>Tlou2 is very ambitious,it want to show a more capacious doomsday,more flounderingly to live people.But in fact it make the plot to tear.
-In a hopeless zombie rampaged world,the immersion get by players can use small space,but in tlou2 use more streets,more roads,even ellie&amp;rsquo;s first day in seattle have a open world like map,it make game rhythm slow.
-Tlou2 use two charactars to act the story,we don&amp;rsquo;t argue the story is good or not,to be honest abby is a not charming charactar,she can not give players more attraction.</description></item><item><title>阿米洛在Arch下的键位映射</title><link>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</link><pubDate>Sat, 11 Mar 2023 10:49:57 +0800</pubDate><guid>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</guid><description>阿米洛键盘的F区在 Archlinux 是有问题的，通过 Xmodmap 去修改键位映射
-下载 Xmodmap 文件，修改为隐藏文件，放入 ~ 目录
-修改 ~/.xinitrc，增加代码
-[[ -f ~/.Xmodmap ]] &amp;amp;&amp;amp; xmodmap ~/.Xmodmap</description></item><item><title>The Witcher 3 next generation edition</title><link>https://insua.github.io/post/2023/02-01-the-witcher-3-next-generation-edition/</link><pubDate>Fri, 10 Feb 2023 17:57:22 +0800</pubDate><guid>https://insua.github.io/post/2023/02-01-the-witcher-3-next-generation-edition/</guid><description>巫师三对完全没有接触过这个系列的人来说，是难以上手的，并不是说游戏的流程和玩法，而是对世界观的陌生所导致的。
-也就是所谓的入戏困难，无法尽快带入到剧情里面。 经过了威伦和诺维格瑞的情节之后，剧情会明显加快，群岛、凯尔莫罕之战的剧情都非常紧凑。当然，大决战更是一气呵成。
-石之心的剧情，总体偏阴暗，但是婚礼的情节无比美好。 血与酒中，风光美好的陶森特让人想常驻在这里，当然最后的结局也可以选择真的常驻。
-巫师三的支线的水准是超过绝大多数游戏的，很少有让人玩的厌烦的，其他的很多游戏支线会让人厌烦，说的就是你，阿育。</description></item><item><title>use acme.sh to generate pan-domain ssl</title><link>https://insua.github.io/post/2018/11-09-use-acme-sh-to-generate-pan-domain-ssl/</link><pubDate>Fri, 09 Nov 2018 11:06:12 +0000</pubDate><guid>https://insua.github.io/post/2018/11-09-use-acme-sh-to-generate-pan-domain-ssl/</guid><description>download acme.sh
-curl https://get.acme.sh | sh goto acme.sh directory
-cd ~/.acme.sh add issued domain
-./acme.sh --issue --dns -d &amp;#34;*.domain&amp;#34; --yes-I-know-dns-manual-mode-enough-go-ahead-please add txt dns record
-then renew
-./acme.sh --issue --dns -d &amp;#34;*.domain&amp;#34; --yes-I-know-dns-manual-mode-enough-go-ahead-please --renew config nginx
-ssl_certificate /path/*.domain/fullchain.cer; ssl_certificate_key /path/*.domain/*.domain.key;</description></item><item><title>使用Route macro来定义Route的新方法</title><link>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</link><pubDate>Tue, 06 Nov 2018 17:43:17 +0000</pubDate><guid>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</guid><description>使用 Laravel 在做后台表单操作时，通常会增加一个批量删除的功能 起初是在 route 里定义一个新的 delete
-Route::delete(&amp;#39;prefix/destroy-selection&amp;#39;, &amp;#39;CurrentController@destroySelection); 之后再定义 apiResource
-Route::apiResource(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;); 这样写十分啰嗦且冗长，Laravel 的强大之处就是它提供了 Macro 来扩展功能
-在 AppServiceProvider 的 boot 方法里加入
-Route::macro(&amp;#39;full&amp;#39;,function ($prefix, $controller){ Route::delete($prefix.&amp;#39;/destroy-selection&amp;#39;, $controller.&amp;#39;@destroySelection&amp;#39;)-&amp;gt;name($prefix.&amp;#39;destroy-selection&amp;#39;); Route::apiResource($prefix, $controller); }); 之后在 route 里就可以直接使用 full 来定义了
-Route::full(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;);</description></item><item><title>如何在 Vue Spa 中使用微信jssdk分享接口</title><link>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</link><pubDate>Tue, 09 Oct 2018 11:44:54 +0000</pubDate><guid>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</guid><description>在Vue Spa项目中，使用了 History 模式，要使用分享接口，只能在第一次访问的时候，就加载jssdk配置，通过Vue router进入其他页面之后再做加载，虽然在调试模式下依然会显示配置正确，但是分享接口是无效的，那么怎么办呢？直接在App.vue下就做jssdk config
-实现步骤 编写后端接口 使用了 overture/wechat
-public function jssdk(Request $request) { $this-&amp;gt;jssdk-&amp;gt;setUrl($request-&amp;gt;input(&amp;#39;url&amp;#39;)); return $this-&amp;gt;jssdk-&amp;gt;buildConfig([ &amp;#39;onMenuShareAppMessage&amp;#39;, &amp;#39;onMenuShareWechat&amp;#39;, &amp;#39;onMenuShareTimeline&amp;#39;, &amp;#39;getLocation&amp;#39; ], false); } 在App.vue中注入配置 引入wexin-js-sdk
-const wx = require(&amp;#39;weixin-js-sdk&amp;#39;) 方法
-async getJssdk () { const { data } = await this.$axios.post(&amp;#39;/api/wechat-work/jssdk&amp;#39;, { url: window.location.href }) wx.config(data) } 在分享页面中编写分享方法 引入wexin-js-sdk
-const wx = require(&amp;#39;weixin-js-sdk&amp;#39;) 在__mounted__里写入分享方法
-wx.ready(() =&amp;gt; { const self = this wx.onMenuShareTimeline({ title: self.shareTitle, link: window.location.href, imgUrl: self.logoPath, success: function () { self.</description></item><item><title>image-webpack-loader resolve jpg file wrong in ubuntu server</title><link>https://insua.github.io/post/2018/08-02-image-webpack-loader-with-jpg-file/</link><pubDate>Thu, 02 Aug 2018 10:35:40 +0000</pubDate><guid>https://insua.github.io/post/2018/08-02-image-webpack-loader-with-jpg-file/</guid><description>In my production Ubuntu server which version is 16.04.3 LTS,after push my code to it,I run
-yarn prod but it show me a error notice
-ERROR in ./resources/assets/js/mobile/pages/Home/images/banner-oath.jpg Module build failed: Error: write EPIPE at _errnoException (util.js:992:11) at WriteWrap.afterWrite [as oncomplete] (net.js:864:14) after search by google,this link solve my problem
-install libpng16-dev in server
-sudo apt-get install libpng16-dev then, it is all fine.</description></item><item><title>laravel echo server 结合 jwt 授权</title><link>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</link><pubDate>Thu, 17 May 2018 19:59:24 +0000</pubDate><guid>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</guid><description>首先，因为重写了 axios 的拦截器，为了确保 socket 消息头的引入，在 axios 拦截器中中加入
-if(window.Echo) { let socketId = window.Echo.socketId() if (socketId) { request.headers.common[&amp;#39;X-Socket-Id&amp;#39;] = socketId } } 然后，修改BroadcastServiceprovider，修改认证路由为api模组
-Broadcast::routes([&amp;#34;prefix&amp;#34; =&amp;gt; &amp;#34;api&amp;#34;, &amp;#34;middleware&amp;#34; =&amp;gt; &amp;#34;api&amp;#34;]); 最后，在 laravel-echo-server.json 中确保认证路由的正确
-{ &amp;#34;authHost&amp;#34;: &amp;#34;http://dev.test&amp;#34;, &amp;#34;authEndpoint&amp;#34;: &amp;#34;/api/broadcasting/auth&amp;#34; } 同时，在 Laravel Echo中加入token认证
-import Cookies from &amp;#39;js-cookie&amp;#39; let token = Cookies.get(&amp;#39;token&amp;#39;) window.Echo = new Echo({ broadcaster: &amp;#39;socket.io&amp;#39;, host: process.env.MIX_ECHO_SERVER, auth: { headers: { &amp;#39;Authorization&amp;#39;: &amp;#39;Bearer &amp;#39; + token } } }) 好了，我们现在可以愉快的使用 laravel 发送广播了，私有频道在 routes/channels.</description></item><item><title>使用Sortable.js和Vue.Draggable的一些坑</title><link>https://insua.github.io/post/2018/05-17-use-vue-draggable-and-sortable-js/</link><pubDate>Thu, 17 May 2018 17:55:47 +0000</pubDate><guid>https://insua.github.io/post/2018/05-17-use-vue-draggable-and-sortable-js/</guid><description>Sortable.js 是拖拽列表最著名的库，而 Vue.Draggable 是其在 Vue 中的封装，在 vue 中引入十分的方便。
-但是我在项目中的需求是左侧列表初始时是空的，从右侧列表拖动到左侧生成，这就造成了一个问题，左侧因为没有dom节点而拖不过来，这时就需要在左侧的 draggable 组件添加一个 min-height 的 css 属性。
-另一个问题是，在使用 clone 模式时，因为 js 对象都是指向同一个指针的，再从右侧拖动到左侧的节点，当修改其属性时，把所有拖拽过来的相同节点也都修改了。
-我的解决方法是，把右侧改为 pull 模式，同时使用 vue 的 watch，当右侧的列表发生变化时重新生成，这样就和初始化的对象完全脱离了。</description></item><item><title>在vue中使用viewerjs</title><link>https://insua.github.io/post/2018/04-22-use-viewerjs-in-vue/</link><pubDate>Sun, 22 Apr 2018 08:49:17 +0000</pubDate><guid>https://insua.github.io/post/2018/04-22-use-viewerjs-in-vue/</guid><description>在 vue中使用viewerjs 必须执行 viewer.update
-const viewer = new Viewer(this.$refs.image) this.$nextTick().then(() =&amp;gt; { viewer.update() }) viewer.view(0) 当然最后别忘了引入css
-@import &amp;#34;~viewerjs/dist/viewer.css&amp;#34;;</description></item><item><title>Laravel Elixir使用webpack打包只引入moment.js的中文语言包</title><link>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</link><pubDate>Thu, 08 Feb 2018 09:21:58 +0000</pubDate><guid>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</guid><description>方法是使用webpack内置的ContextReplacementPlugin插件
-修改_gulpfile.js_
-先引入webpack
-const webpack = require(&amp;#39;webpack&amp;#39;) 增加自定义webpack配置
-elixir(mix =&amp;gt; { Elixir.webpack.mergeConfig({ plugins: [ new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/) ] }); 之后运行
-gulp 会发现打包之后的js会明显变小</description></item><item><title>Laravel 执行定时任务时的url域名</title><link>https://insua.github.io/post/2018/01-30-laravel-console-domain/</link><pubDate>Tue, 30 Jan 2018 22:22:30 +0000</pubDate><guid>https://insua.github.io/post/2018/01-30-laravel-console-domain/</guid><description>在laravel开发时，我最常用的url函数是route，因为根据route函数生成的url如果命名路由写错了那么直接会报错，这样有问题能早发现。 在生成定时任务的时候，在console里，我也写了route，但是推送到用户的地址却是localhost，这可太奇怪了，于是翻了laravel的源代码
-laravel/framework/src/Illuminate/Foundation/Bootstrap/SetRequestForConsole.php
-public function bootstrap(Application $app) { $url = $app-&amp;gt;make(&amp;#39;config&amp;#39;)-&amp;gt;get(&amp;#39;app.url&amp;#39;, &amp;#39;http://localhost&amp;#39;); $app-&amp;gt;instance(&amp;#39;request&amp;#39;, Request::create($url, &amp;#39;GET&amp;#39;, [], [], [], $_SERVER)); } 原来是因为走定时器任务时是在命令行里执行的，laravel无法根据用户的输入而得到域名，那么就必须读取配置文件了 当然在 .env里定义是最佳实践了</description></item><item><title>用wakatime来统计coding信息</title><link>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</link><pubDate>Wed, 06 Sep 2017 20:38:46 +0000</pubDate><guid>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</guid><description>wakatime的主页
-目前支持绝大部分主流的编辑器和IDE 我把phpstorm、vim、datagrip、sublime和zsh都装上了wakatime的插件
-装完了之后，就啥也不用管了，wakatime会自动把你的coding信息传到他的服务器，然后做成漂亮的图表来展示 他还有一个coding time的排行榜 蛤，我在哪？ 每个人的主页上，会详细展示语言、编辑器和操作系统使用时间的百分比 比如 我的主页</description></item><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>valet-linux的github地址
-valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1
-那么就直接用dnsmasq了
-$ sudo vim /etc/dnsmasq.conf 修改listen-address和address
-listen-address=127.0.0.1 address=/app/127.0.0.1 address=/dev/192.168.10.10 指向dev的是homestead的ip,valet的默认domain修改为app
-修改 /etc/resolv.conf 将
-nameserver 127.0.0.1 加到最上面
-使用
-$ sudo chattr +i /etc/resolv.conf 为其加锁，最后别忘了用systemd将dnsmasq自动启动
-$ sudo systemctl enable dnsmasq valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常</description></item><item><title>一些gitlab的tips</title><link>https://insua.github.io/post/2017/03-10-some-gitlab-tips/</link><pubDate>Fri, 10 Mar 2017 20:53:45 +0000</pubDate><guid>https://insua.github.io/post/2017/03-10-some-gitlab-tips/</guid><description>Tips1: 禁止登录
-登录服务器修改数据库
-$ sudo -u gitlab-psql /opt/gitlab/embedded/bin/psql -h /var/opt/gitlab/postgresql gitlabhq_production update application_settings set signin_enabled=true; Tips2: 忘记密码 登录服务器，进入console修改
-$ sudo gitlab-rails console production user = User.find(1) user.password = &amp;#34;xxxxx&amp;#34; user.save</description></item><item><title>AUR打包成pkg</title><link>https://insua.github.io/post/2017/02-05-arch-make-pkg/</link><pubDate>Sun, 05 Feb 2017 20:40:15 +0000</pubDate><guid>https://insua.github.io/post/2017/02-05-arch-make-pkg/</guid><description>大多数情况下，我们都是使用yaourt等AUR包管理工具来安装、更新AUR包，不过有些时候在网络条件比较差的情况下，源文件下载特别慢而build失败，我们先把PKGBUILD下载到本地
-$ yaourt -G pkg-name $ cd pkg-name 查看PKGBUILD
-$ vim PKGBUILD 在找到源码的地址后，可以使用下载工具将源码下载或克隆到本地，修改源码地址，之后编译生成pkg包
-$ makepkg 编译、打包完成后，在目录下会生成pkg-name-version-arch.pkg.tar.xz
-直接安装到本机的话，执行命令
-$ sudo pacman -U pkg-name-version-arch.pkg.tar.xz</description></item><item><title>开发Laravel时必备的三个包</title><link>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</link><pubDate>Tue, 17 Jan 2017 21:16:46 +0000</pubDate><guid>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</guid><description>barryvdh/laravel-debugbar 作用是页面底部显示丰富的调试信息
-安装
-$ composer require barryvdh/laravel-debugbar config/app.php注册ServerProvider
-Barryvdh\Debugbar\ServiceProvider::class, 增加Facades
-&amp;#39;Debugbar&amp;#39; =&amp;gt; Barryvdh\Debugbar\Facade::class, barryvdh/laravel-ide-helper 生成一个php文件，为IDE提供更好的支持
-安装
-$ composer require barryvdh/laravel-ide-helper config/app.php注册ServerProvider
-Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, 使用
-如果使用的是Homestead，ssh登录虚拟机后，在虚拟机执行，否则会找不到数据库而报错
-sven/artisan-view 使用artisan命令生成视图文件
-安装
-$ composer require sven/artisan-view config/app.php注册ServerProvider
-Sven\ArtisanView\ArtisanViewServiceProvider::class, 使用
-生成视图
-$ php artisan make:view index 生成目录下的视图
-$ php artisan make:view pages.index</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on 代码如歌</title><link>https://insua.github.io/post/</link><description>Recent content in Posts on 代码如歌</description><generator>Hugo -- 0.141.0</generator><language>en-us</language><lastBuildDate>Thu, 16 Jan 2025 17:51:38 +0800</lastBuildDate><atom:link href="https://insua.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>arch 信任签名根CA</title><link>https://insua.github.io/post/2025/01-16-trust-self-signed-root-ca/</link><pubDate>Thu, 16 Jan 2025 17:51:38 +0800</pubDate><guid>https://insua.github.io/post/2025/01-16-trust-self-signed-root-ca/</guid><description>&lt;p>下载根证书，然后转换&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>openssl pkcs12 -in baota_root.pfx -out baota_root.pem -nodes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输入根证书密码&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>openssl x509 -in baota_root.pem -out baota_root.crt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>把crt的名字加上服务器的ip来做区分&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mv baota_root.crt baota_root_192.168.1.1.crt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>移动到系统目录&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo mv baota_root_192.168.1.1.crt /etc/ca-certificates/trust-source/anchors/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新系统证书存储&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo trust extract-compat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启浏览器，然后进入宝塔面板，就会发下证书已被信任了&lt;/p></description></item><item><title>Docker Systemd Proxy</title><link>https://insua.github.io/post/2024/06-12-docker-systemd-proxy/</link><pubDate>Wed, 12 Jun 2024 15:34:27 +0800</pubDate><guid>https://insua.github.io/post/2024/06-12-docker-systemd-proxy/</guid><description>&lt;p>当前 docker 的镜像源全部都挂了.&lt;br>
+目前唯一的方法就是使用代理来拉取镜像.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vim /etc/systemd/system/docker.service.d/http-proxy.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后写入&lt;/p>
+&lt;pre tabindex="0">&lt;code>[Service]
+Environment=&amp;#34;HTTP_PROXY=socks5://127.0.0.1:7890/&amp;#34;
+Environment=&amp;#34;HTTPS_PROXY=socks5://127.0.0.1:7890/&amp;#34;
+Environment=&amp;#34;NO_PROXY=localhost,127.0.0.1&amp;#34;
+&lt;/code>&lt;/pre>&lt;p>之后重启 docker&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl restart docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>之后无论是 docker pull 还是 docker-compose build 就都可以通过代理拉取镜像了.&lt;/p></description></item><item><title>弃长安读后</title><link>https://insua.github.io/post/2024/03-21-lost-changan-after-reading/</link><pubDate>Thu, 21 Mar 2024 09:19:14 +0800</pubDate><guid>https://insua.github.io/post/2024/03-21-lost-changan-after-reading/</guid><description>&lt;p>总体是非常流畅的，没有多少的凝滞感，缺点是有些词过于现代和网络，与历史的基调太过不符。&lt;br>
+因为对安史之乱前期的历史，过于了解，没有太多的新鲜感，而且太过于集中帝王将相。&lt;br>
+穿插的李白、杜甫、王维、高适的诗人的历史还是很好的，但是不足，如果是能专门写诗人在这个历史时刻的各种故事就好了，比较李隆基、安禄山、杨国忠的故事太多了。&lt;/p></description></item><item><title>为什么会有这么荒诞、沙雕而又这么好玩的游戏</title><link>https://insua.github.io/post/2023/08-14-how-could-there-be-such-ridiculous-and-funny-game/</link><pubDate>Mon, 14 Aug 2023 10:39:19 +0800</pubDate><guid>https://insua.github.io/post/2023/08-14-how-could-there-be-such-ridiculous-and-funny-game/</guid><description>&lt;p>无主之地3最让人眼花缭乱的就是各种各样的枪支，不仅射击手感一流，而且刷词缀系统，让它的枪支系统更是丰富多彩。&lt;br>
+打了一个boss或是开启秘藏之后，五颜六色的闪光冒一堆，能不让人兴奋大呼吗？&lt;br>
+无主之地的剧情是荒诞不经的，也正是因为荒诞，所以一切不合理的剧情与设定也就不让人去挑剔了，就像没有人去用分析力学的力量去挑汤姆和杰瑞。&lt;br>
+无主之地还有最接地气的一点就是他的本地化中文配音，演绎的非常接近各个人物的个性。&lt;/p></description></item><item><title>stray 噱头大于乐趣</title><link>https://insua.github.io/post/2023/07-12-stray-more-gimmick-less-fun/</link><pubDate>Wed, 12 Jul 2023 08:58:34 +0800</pubDate><guid>https://insua.github.io/post/2023/07-12-stray-more-gimmick-less-fun/</guid><description>&lt;p>stray 的设定是相当有趣的，以一只橘猫为完全的主角，在这里动物不是伙伴而是唯一的可操作角色。&lt;br>
+stray 也正是靠着这一点，而去吸引了玩家入手。&lt;br>
+但是这款也有巨大的缺陷。&lt;br>
+使用猫的视角去操作，主要的动作是跳跃和触碰质量轻的东西。跳跃只能按照猫的活动能力去规划，但是能跳跃的各类游戏太多了，这点无法给人以另类感。习惯了人类主角的，在某些解密的场景下，从狭小的空间猫可以穿越，这点很特别，能给人惊喜。&lt;br>
+stray 最大的问题是剧情简直寡淡如水，无法给人任何惊喜。&lt;br>
+只能说以接近现实的动物为主角的游戏还需要探索。&lt;/p></description></item><item><title>Use Commitizen With Emoji to Format Git Message</title><link>https://insua.github.io/post/2023/07-11-use-commitizen-with-emoji-to-format-git-message/</link><pubDate>Tue, 11 Jul 2023 10:55:49 +0800</pubDate><guid>https://insua.github.io/post/2023/07-11-use-commitizen-with-emoji-to-format-git-message/</guid><description>&lt;p>Global install commitizen with npm&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>npm install -g commitizen
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Global install cz-emoji&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>npm install -g cz-emoji
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set cz-emoji as default adapter&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;{ &amp;#34;path&amp;#34;: &amp;#34;cz-emoji&amp;#34; }&amp;#39;&lt;/span> &amp;gt; ~/.czrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use &lt;strong>git cz&lt;/strong> instead of &lt;strong>git commit&lt;/strong> to edit git commit message&lt;/p></description></item><item><title>命令行导出达梦备份文件</title><link>https://insua.github.io/post/2023/07-06-export-dm-dump/</link><pubDate>Thu, 06 Jul 2023 17:50:40 +0800</pubDate><guid>https://insua.github.io/post/2023/07-06-export-dm-dump/</guid><description>&lt;p>必须进入到达梦的 bin 目录下执行 否则会找不到 so 文件&lt;br>
+命令如下:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>./dexp USERID&lt;span style="color:#f92672">=&lt;/span>user/pass@ip SCHEMAS&lt;span style="color:#f92672">=&lt;/span>schema DIRECTORY&lt;span style="color:#f92672">=&lt;/span>dir
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参数解释:&lt;/p>
+&lt;ul>
+&lt;li>user: 用户&lt;/li>
+&lt;li>pass: 密码&lt;/li>
+&lt;li>schema: 模式&lt;/li>
+&lt;li>dir: 导出目录&lt;/li>
+&lt;/ul>
+&lt;p>同样 导入的时候 也使用类似的命令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>./dimp user/pass@ip FILE&lt;span style="color:#f92672">=&lt;/span>dexp.dmp DIRECTORY&lt;span style="color:#f92672">=&lt;/span>dir SCHEMAS&lt;span style="color:#f92672">=&lt;/span>schema
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参数解释:
+dexp.dmp: 导出数据文件名&lt;br>
+其余同上&lt;/p></description></item><item><title>2023.7 Archlinux 安装教程</title><link>https://insua.github.io/post/2023/07-05-install-arch/</link><pubDate>Wed, 05 Jul 2023 11:31:00 +0800</pubDate><guid>https://insua.github.io/post/2023/07-05-install-arch/</guid><description>&lt;h3 id="一-基础安装">一 基础安装&lt;/h3>
+&lt;h4 id="1禁用reflector">1.禁用reflector&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>systemctl stop reflector.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2确认是否为uefi模式">2.确认是否为UEFI模式&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>ls /sys/firmware/efi/efivars
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果有输出则为UEFI模式&lt;/p>
+&lt;h4 id="3更新系统时钟">3.更新系统时钟&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>timedatectl set-ntp true &lt;span style="color:#75715e"># 将系统时间与网络时间进行同步&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timedatectl status &lt;span style="color:#75715e"># 检查服务状态&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="4更新镜像源">4.更新镜像源&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vim /etc/pacman.d/mirrorlist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在最上面添加&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Server &lt;span style="color:#f92672">=&lt;/span> https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch &lt;span style="color:#75715e"># 清华大学开源软件镜像站&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="5分区与格式化">5.分区与格式化&lt;/h4>
+&lt;p>转换磁盘为 gpt 类型&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>lsblk &lt;span style="color:#75715e">#显示分区情况 找到你想安装的磁盘名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>parted /dev/nvmexn1 &lt;span style="color:#75715e">#执行parted，进入交互式命令行，进行磁盘类型变更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span>mktable &lt;span style="color:#75715e">#输入mktable&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New disk label type? gpt &lt;span style="color:#75715e">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>quit &lt;span style="color:#75715e">#最后quit退出parted命令行交互&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>EFI分区: /efi 1G&lt;br>
+Swap分区: 32G&lt;br>
+/分区：剩余&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>cfdisk /dev/nvmexn1 &lt;span style="color:#75715e"># 对安装 archlinux 的磁盘分区&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看分区&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>fdisk -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>格式化&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mkswap /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkfs.ext4 /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkfs.vfat /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="6挂载">6.挂载&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mount /dev/nvmexn1pn /mnt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /mnt/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mount /dev/nvmexn1pn /mnt/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>swapon /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>free -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="7安装系统">7.安装系统&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pacstrap /mnt base base-devel linux linux-firmware
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pacstrap /mnt dhcpcd iwd vim bash-completion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="8生成fstab">8.生成fstab&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /mnt/etc/fsta
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="9chroot">9.chroot&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>arch-chroot /mnt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="10设置时区">10.设置时区&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hwclock --systohc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="11本地化">11.本地化&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vim /etc/locale.gen
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>反注释 en_US.UTF-8 zh_CN.UTF-8&lt;/p></description></item><item><title>How tlou1 is better than tlou2</title><link>https://insua.github.io/post/2023/03-13-how-tlou1-is-better-than-tlou2/</link><pubDate>Mon, 13 Mar 2023 09:55:27 +0800</pubDate><guid>https://insua.github.io/post/2023/03-13-how-tlou1-is-better-than-tlou2/</guid><description>&lt;p>Tlou2 is very ambitious,it want to show a more capacious doomsday,more flounderingly to live people.But in fact it make the plot to tear.&lt;br>
+In a hopeless zombie rampaged world,the immersion get by players can use small space,but in tlou2 use more streets,more roads,even ellie&amp;rsquo;s first day in seattle have a open world like map,it make game rhythm slow.&lt;br>
+Tlou2 use two charactars to act the story,we don&amp;rsquo;t argue the story is good or not,to be honest abby is a not charming charactar,she can not give players more attraction.&lt;br>
+Charactar&amp;rsquo;s low attraction is the most destructive for a linear narrative video game.&lt;/p></description></item><item><title>阿米洛在Arch下的键位映射</title><link>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</link><pubDate>Sat, 11 Mar 2023 10:49:57 +0800</pubDate><guid>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</guid><description>&lt;p>阿米洛键盘的F区在 Archlinux 是有问题的，通过 Xmodmap 去修改键位映射&lt;br>
+下载 &lt;a href="https://insua.github.io/file/2023/Xmodmap">Xmodmap&lt;/a> 文件，修改为隐藏文件，放入 ~ 目录&lt;br>
+修改 &lt;strong>~/.xinitrc&lt;/strong>，增加代码&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[[&lt;/span> -f ~/.Xmodmap &lt;span style="color:#f92672">]]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> xmodmap ~/.Xmodmap
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>The Witcher 3 next generation edition</title><link>https://insua.github.io/post/2023/02-01-the-witcher-3-next-generation-edition/</link><pubDate>Fri, 10 Feb 2023 17:57:22 +0800</pubDate><guid>https://insua.github.io/post/2023/02-01-the-witcher-3-next-generation-edition/</guid><description>&lt;p>巫师三对完全没有接触过这个系列的人来说，是难以上手的，并不是说游戏的流程和玩法，而是对世界观的陌生所导致的。&lt;br>
+也就是所谓的入戏困难，无法尽快带入到剧情里面。
+经过了威伦和诺维格瑞的情节之后，剧情会明显加快，群岛、凯尔莫罕之战的剧情都非常紧凑。当然，大决战更是一气呵成。&lt;br>
+石之心的剧情，总体偏阴暗，但是婚礼的情节无比美好。
+血与酒中，风光美好的陶森特让人想常驻在这里，当然最后的结局也可以选择真的常驻。&lt;br>
+巫师三的支线的水准是超过绝大多数游戏的，很少有让人玩的厌烦的，其他的很多游戏支线会让人厌烦，说的就是你，阿育。&lt;/p></description></item><item><title>use acme.sh to generate pan-domain ssl</title><link>https://insua.github.io/post/2018/11-09-use-acme-sh-to-generate-pan-domain-ssl/</link><pubDate>Fri, 09 Nov 2018 11:06:12 +0000</pubDate><guid>https://insua.github.io/post/2018/11-09-use-acme-sh-to-generate-pan-domain-ssl/</guid><description>&lt;p>download acme.sh&lt;/p>
+&lt;pre tabindex="0">&lt;code>curl https://get.acme.sh | sh
+&lt;/code>&lt;/pre>&lt;p>goto acme.sh directory&lt;/p>
+&lt;pre tabindex="0">&lt;code>cd ~/.acme.sh
+&lt;/code>&lt;/pre>&lt;p>add issued domain&lt;/p>
+&lt;pre tabindex="0">&lt;code>./acme.sh --issue --dns -d &amp;#34;*.domain&amp;#34; --yes-I-know-dns-manual-mode-enough-go-ahead-please
+&lt;/code>&lt;/pre>&lt;p>add txt dns record&lt;br>
+then renew&lt;/p>
+&lt;pre tabindex="0">&lt;code>./acme.sh --issue --dns -d &amp;#34;*.domain&amp;#34; --yes-I-know-dns-manual-mode-enough-go-ahead-please --renew
+&lt;/code>&lt;/pre>&lt;p>config nginx&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssl_certificate /path/*.domain/fullchain.cer;
+ssl_certificate_key /path/*.domain/*.domain.key;
+&lt;/code>&lt;/pre></description></item><item><title>使用Route macro来定义Route的新方法</title><link>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</link><pubDate>Tue, 06 Nov 2018 17:43:17 +0000</pubDate><guid>https://insua.github.io/post/2018/11-06-user-route-macro-to-define-new-route-command/</guid><description>&lt;p>使用 Laravel 在做后台表单操作时，通常会增加一个批量删除的功能
+起初是在 &lt;strong>route&lt;/strong> 里定义一个新的 delete&lt;/p>
+&lt;pre tabindex="0">&lt;code>Route::delete(&amp;#39;prefix/destroy-selection&amp;#39;, &amp;#39;CurrentController@destroySelection);
+&lt;/code>&lt;/pre>&lt;p>之后再定义 apiResource&lt;/p>
+&lt;pre tabindex="0">&lt;code>Route::apiResource(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;);
+&lt;/code>&lt;/pre>&lt;p>这样写十分啰嗦且冗长，Laravel 的强大之处就是它提供了 Macro 来扩展功能&lt;/p>
+&lt;p>在 AppServiceProvider 的 boot 方法里加入&lt;/p>
+&lt;pre tabindex="0">&lt;code>Route::macro(&amp;#39;full&amp;#39;,function ($prefix, $controller){
+Route::delete($prefix.&amp;#39;/destroy-selection&amp;#39;, $controller.&amp;#39;@destroySelection&amp;#39;)-&amp;gt;name($prefix.&amp;#39;destroy-selection&amp;#39;);
+Route::apiResource($prefix, $controller);
+});
+&lt;/code>&lt;/pre>&lt;p>之后在 &lt;strong>route&lt;/strong> 里就可以直接使用 full 来定义了&lt;/p>
+&lt;pre tabindex="0">&lt;code> Route::full(&amp;#39;prefix&amp;#39;, &amp;#39;CurrentController&amp;#39;);
+&lt;/code>&lt;/pre></description></item><item><title>如何在 Vue Spa 中使用微信jssdk分享接口</title><link>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</link><pubDate>Tue, 09 Oct 2018 11:44:54 +0000</pubDate><guid>https://insua.github.io/post/2018/10-09-how-to-use-wechat-jssdk-share-in-vue-spa/</guid><description>&lt;p>在Vue Spa项目中，使用了 History 模式，要使用分享接口，只能在第一次访问的时候，就加载jssdk配置，通过Vue router进入其他页面之后再做加载，虽然在调试模式下依然会显示配置正确，但是分享接口是无效的，那么怎么办呢？直接在App.vue下就做jssdk config&lt;/p>
+&lt;h3 id="实现步骤">实现步骤&lt;/h3>
+&lt;h4 id="编写后端接口">编写后端接口&lt;/h4>
+&lt;p>使用了 overture/wechat&lt;/p>
+&lt;pre tabindex="0">&lt;code>public function jssdk(Request $request)
+{
+$this-&amp;gt;jssdk-&amp;gt;setUrl($request-&amp;gt;input(&amp;#39;url&amp;#39;));
+return $this-&amp;gt;jssdk-&amp;gt;buildConfig([
+&amp;#39;onMenuShareAppMessage&amp;#39;,
+&amp;#39;onMenuShareWechat&amp;#39;,
+&amp;#39;onMenuShareTimeline&amp;#39;,
+&amp;#39;getLocation&amp;#39;
+], false);
+}
+&lt;/code>&lt;/pre>&lt;h4 id="在appvue中注入配置">在App.vue中注入配置&lt;/h4>
+&lt;p>引入wexin-js-sdk&lt;/p>
+&lt;pre tabindex="0">&lt;code>const wx = require(&amp;#39;weixin-js-sdk&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>方法&lt;/p>
+&lt;pre tabindex="0">&lt;code>async getJssdk () {
+const { data } = await this.$axios.post(&amp;#39;/api/wechat-work/jssdk&amp;#39;, { url: window.location.href })
+wx.config(data)
+}
+&lt;/code>&lt;/pre>&lt;h4 id="在分享页面中编写分享方法">在分享页面中编写分享方法&lt;/h4>
+&lt;p>引入wexin-js-sdk&lt;/p>
+&lt;pre tabindex="0">&lt;code>const wx = require(&amp;#39;weixin-js-sdk&amp;#39;)
+&lt;/code>&lt;/pre>&lt;p>在__mounted__里写入分享方法&lt;/p>
+&lt;pre tabindex="0">&lt;code>wx.ready(() =&amp;gt; {
+const self = this
+wx.onMenuShareTimeline({
+title: self.shareTitle,
+link: window.location.href,
+imgUrl: self.logoPath,
+success: function () {
+self.forward(&amp;#39;onMenuShareTimeline&amp;#39;)
+self.$toast.success(&amp;#39;分享成功&amp;#39;)
+},
+cancel: function () {
+self.$toast.fail(&amp;#39;取消分享&amp;#39;)
+}
+})
+})
+&lt;/code>&lt;/pre>&lt;p>最后在__destroyed__里重写分享方法，以终止分享接口&lt;/p></description></item><item><title>image-webpack-loader resolve jpg file wrong in ubuntu server</title><link>https://insua.github.io/post/2018/08-02-image-webpack-loader-with-jpg-file/</link><pubDate>Thu, 02 Aug 2018 10:35:40 +0000</pubDate><guid>https://insua.github.io/post/2018/08-02-image-webpack-loader-with-jpg-file/</guid><description>&lt;p>In my production Ubuntu server which version is 16.04.3 LTS,after push my code to it,I run&lt;/p>
+&lt;pre tabindex="0">&lt;code>yarn prod
+&lt;/code>&lt;/pre>&lt;p>but it show me a error notice&lt;/p>
+&lt;pre tabindex="0">&lt;code>ERROR in ./resources/assets/js/mobile/pages/Home/images/banner-oath.jpg
+Module build failed: Error: write EPIPE
+at _errnoException (util.js:992:11)
+at WriteWrap.afterWrite [as oncomplete] (net.js:864:14)
+&lt;/code>&lt;/pre>&lt;p>after search by google,this &lt;a href="https://github.com/tcoopman/image-webpack-loader/issues/142">link&lt;/a> solve my problem&lt;br>
+install libpng16-dev in server&lt;/p>
+&lt;pre tabindex="0">&lt;code>sudo apt-get install libpng16-dev
+&lt;/code>&lt;/pre>&lt;p>then, it is all fine.&lt;/p></description></item><item><title>laravel echo server 结合 jwt 授权</title><link>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</link><pubDate>Thu, 17 May 2018 19:59:24 +0000</pubDate><guid>https://insua.github.io/post/2018/05-17-laravel-echo-by-jwt/</guid><description>&lt;p>首先，因为重写了 axios 的拦截器，为了确保 socket 消息头的引入，在 axios 拦截器中中加入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span>(window.&lt;span style="color:#a6e22e">Echo&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">socketId&lt;/span> &lt;span style="color:#f92672">=&lt;/span> window.&lt;span style="color:#a6e22e">Echo&lt;/span>.&lt;span style="color:#a6e22e">socketId&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">socketId&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">request&lt;/span>.&lt;span style="color:#a6e22e">headers&lt;/span>.&lt;span style="color:#a6e22e">common&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;X-Socket-Id&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">socketId&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后，修改BroadcastServiceprovider，修改认证路由为api模组&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Broadcast&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">routes&lt;/span>([&lt;span style="color:#e6db74">&amp;#34;prefix&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;api&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;middleware&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;api&amp;#34;&lt;/span>]);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>最后，在 laravel-echo-server.json 中确保认证路由的正确&lt;/p>
+&lt;pre tabindex="0">&lt;code>{
+&amp;#34;authHost&amp;#34;: &amp;#34;http://dev.test&amp;#34;,
+&amp;#34;authEndpoint&amp;#34;: &amp;#34;/api/broadcasting/auth&amp;#34;
+}
+&lt;/code>&lt;/pre>&lt;p>同时，在 Laravel Echo中加入token认证&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">Cookies&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#39;js-cookie&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">token&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">Cookies&lt;/span>.&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;token&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>window.&lt;span style="color:#a6e22e">Echo&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Echo&lt;/span>({
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">broadcaster&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;socket.io&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">process&lt;/span>.&lt;span style="color:#a6e22e">env&lt;/span>.&lt;span style="color:#a6e22e">MIX_ECHO_SERVER&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auth&lt;/span>&lt;span style="color:#f92672">:&lt;/span> { &lt;span style="color:#a6e22e">headers&lt;/span>&lt;span style="color:#f92672">:&lt;/span> { &lt;span style="color:#e6db74">&amp;#39;Authorization&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Bearer &amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">token&lt;/span> } }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>})
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>好了，我们现在可以愉快的使用 laravel 发送广播了，私有频道在 routes/channels.php 中编写认证权限&lt;/p>
+&lt;p>在前端使用 Laravel Echo 监听私有频道时，只有通过 laravel echo server 认证的私有频道才会建立监听，并收听到广播&lt;/p></description></item><item><title>使用Sortable.js和Vue.Draggable的一些坑</title><link>https://insua.github.io/post/2018/05-17-use-vue-draggable-and-sortable-js/</link><pubDate>Thu, 17 May 2018 17:55:47 +0000</pubDate><guid>https://insua.github.io/post/2018/05-17-use-vue-draggable-and-sortable-js/</guid><description>&lt;p>Sortable.js 是拖拽列表最著名的库，而 Vue.Draggable 是其在 Vue 中的封装，在 vue 中引入十分的方便。&lt;/p>
+&lt;p>但是我在项目中的需求是左侧列表初始时是空的，从右侧列表拖动到左侧生成，这就造成了一个问题，左侧因为没有dom节点而拖不过来，这时就需要在左侧的 draggable 组件添加一个 min-height 的 css 属性。&lt;/p>
+&lt;p>另一个问题是，在使用 clone 模式时，因为 js 对象都是指向同一个指针的，再从右侧拖动到左侧的节点，当修改其属性时，把所有拖拽过来的相同节点也都修改了。&lt;br>
+我的解决方法是，把右侧改为 pull 模式，同时使用 vue 的 watch，当右侧的列表发生变化时重新生成，这样就和初始化的对象完全脱离了。&lt;/p></description></item><item><title>在vue中使用viewerjs</title><link>https://insua.github.io/post/2018/04-22-use-viewerjs-in-vue/</link><pubDate>Sun, 22 Apr 2018 08:49:17 +0000</pubDate><guid>https://insua.github.io/post/2018/04-22-use-viewerjs-in-vue/</guid><description>&lt;p>在 vue中使用viewerjs 必须执行 viewer.update&lt;/p>
+&lt;pre tabindex="0">&lt;code>const viewer = new Viewer(this.$refs.image)
+this.$nextTick().then(() =&amp;gt; {
+viewer.update()
+})
+viewer.view(0)
+&lt;/code>&lt;/pre>&lt;p>当然最后别忘了引入css&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scss" data-lang="scss">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">@import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;~viewerjs/dist/viewer.css&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Laravel Elixir使用webpack打包只引入moment.js的中文语言包</title><link>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</link><pubDate>Thu, 08 Feb 2018 09:21:58 +0000</pubDate><guid>https://insua.github.io/post/2018/02-08-thin-moment-js-in-laravel-elixir/</guid><description>&lt;p>方法是使用webpack内置的ContextReplacementPlugin插件&lt;br>
+修改_gulpfile.js_&lt;br>
+先引入webpack&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">webpack&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;webpack&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>增加自定义webpack配置&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">elixir&lt;/span>(&lt;span style="color:#a6e22e">mix&lt;/span> =&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Elixir&lt;/span>.&lt;span style="color:#a6e22e">webpack&lt;/span>.&lt;span style="color:#a6e22e">mergeConfig&lt;/span>({
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">plugins&lt;/span>&lt;span style="color:#f92672">:&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">webpack&lt;/span>.&lt;span style="color:#a6e22e">ContextReplacementPlugin&lt;/span>(&lt;span style="color:#e6db74">/moment[\\/]locale$/&lt;/span>, &lt;span style="color:#e6db74">/^\.\/(zh-cn)$/&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> });
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>之后运行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gulp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>会发现打包之后的js会明显变小&lt;/p></description></item><item><title>Laravel 执行定时任务时的url域名</title><link>https://insua.github.io/post/2018/01-30-laravel-console-domain/</link><pubDate>Tue, 30 Jan 2018 22:22:30 +0000</pubDate><guid>https://insua.github.io/post/2018/01-30-laravel-console-domain/</guid><description>&lt;p>在laravel开发时，我最常用的url函数是route，因为根据route函数生成的url如果命名路由写错了那么直接会报错，这样有问题能早发现。
+在生成定时任务的时候，在console里，我也写了route，但是推送到用户的地址却是localhost，这可太奇怪了，于是翻了laravel的源代码&lt;/p>
+&lt;blockquote>
+&lt;p>laravel/framework/src/Illuminate/Foundation/Bootstrap/SetRequestForConsole.php&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">bootstrap&lt;/span>(&lt;span style="color:#a6e22e">Application&lt;/span> $app)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $url &lt;span style="color:#f92672">=&lt;/span> $app&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">make&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;config&amp;#39;&lt;/span>)&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;app.url&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;http://localhost&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $app&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">instance&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;request&amp;#39;&lt;/span>, &lt;span style="color:#a6e22e">Request&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">create&lt;/span>($url, &lt;span style="color:#e6db74">&amp;#39;GET&amp;#39;&lt;/span>, [], [], [], $_SERVER));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>原来是因为走定时器任务时是在命令行里执行的，laravel无法根据用户的输入而得到域名，那么就必须读取配置文件了
+当然在 &lt;code>.env&lt;/code>里定义是最佳实践了&lt;/p></description></item><item><title>用wakatime来统计coding信息</title><link>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</link><pubDate>Wed, 06 Sep 2017 20:38:46 +0000</pubDate><guid>https://insua.github.io/post/2017/09-06-use-wakatime-to-statistics-coding-time/</guid><description>&lt;p>wakatime的&lt;a href="https://wakatime.com">主页&lt;/a>&lt;br>
+目前支持绝大部分主流的编辑器和IDE
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8elxairgj20p90h9gpj.jpg">
+我把phpstorm、vim、datagrip、sublime和zsh都装上了wakatime的插件&lt;br>
+装完了之后，就啥也不用管了，wakatime会自动把你的coding信息传到他的服务器，然后做成漂亮的图表来展示
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eou4bxwj21b50g4762.jpg">
+他还有一个coding time的排行榜
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eqii8u6j216g0fxn0i.jpg">
+蛤，我在哪？
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8eri873qj210i03fjs0.jpg">
+每个人的主页上，会详细展示语言、编辑器和操作系统使用时间的百分比
+比如 &lt;a href="https://wakatime.com/@Xeneizes">我的主页&lt;/a>
+&lt;img loading="lazy" src="http://ww1.sinaimg.cn/large/9b694940ly1fj8etrzyp7j20zn0oywhv.jpg">&lt;/p></description></item><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>&lt;p>valet-linux的github&lt;a href="https://github.com/cpriego/valet-linux">地址&lt;/a>&lt;br>
+valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1&lt;br>
+那么就直接用dnsmasq了&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo vim /etc/dnsmasq.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改listen-address和address&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>listen-address&lt;span style="color:#f92672">=&lt;/span>127.0.0.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address&lt;span style="color:#f92672">=&lt;/span>/app/127.0.0.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address&lt;span style="color:#f92672">=&lt;/span>/dev/192.168.10.10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>指向dev的是homestead的ip,valet的默认domain修改为app&lt;/p>
+&lt;/blockquote>
+&lt;p>修改 /etc/resolv.conf
+将&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nameserver 127.0.0.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加到最上面&lt;br>
+使用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo chattr +i /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>为其加锁，最后别忘了用systemd将dnsmasq自动启动&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo systemctl enable dnsmasq
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常&lt;/p></description></item><item><title>一些gitlab的tips</title><link>https://insua.github.io/post/2017/03-10-some-gitlab-tips/</link><pubDate>Fri, 10 Mar 2017 20:53:45 +0000</pubDate><guid>https://insua.github.io/post/2017/03-10-some-gitlab-tips/</guid><description>&lt;p>Tips1: 禁止登录&lt;br>
+登录服务器修改数据库&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo -u gitlab-psql /opt/gitlab/embedded/bin/psql -h /var/opt/gitlab/postgresql gitlabhq_production
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>update application_settings set signin_enabled&lt;span style="color:#f92672">=&lt;/span>true;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips2: 忘记密码
+登录服务器，进入console修改&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo gitlab-rails console production
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>user &lt;span style="color:#f92672">=&lt;/span> User.find&lt;span style="color:#f92672">(&lt;/span>1&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>user.password &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;xxxxx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>user.save
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AUR打包成pkg</title><link>https://insua.github.io/post/2017/02-05-arch-make-pkg/</link><pubDate>Sun, 05 Feb 2017 20:40:15 +0000</pubDate><guid>https://insua.github.io/post/2017/02-05-arch-make-pkg/</guid><description>&lt;p>大多数情况下，我们都是使用yaourt等AUR包管理工具来安装、更新AUR包，不过有些时候在网络条件比较差的情况下，源文件下载特别慢而build失败，我们先把PKGBUILD下载到本地&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yaourt -G pkg-name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd pkg-name
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看PKGBUILD&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ vim PKGBUILD
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在找到源码的地址后，可以使用下载工具将源码下载或克隆到本地，修改源码地址，之后编译生成pkg包&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ makepkg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>编译、打包完成后，在目录下会生成pkg-name-version-arch.pkg.tar.xz&lt;br>
+直接安装到本机的话，执行命令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo pacman -U pkg-name-version-arch.pkg.tar.xz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>开发Laravel时必备的三个包</title><link>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</link><pubDate>Tue, 17 Jan 2017 21:16:46 +0000</pubDate><guid>https://insua.github.io/post/2017/01-17-three-packages-for-laravel-developer/</guid><description>&lt;h3 id="barryvdhlaravel-debugbar">barryvdh/laravel-debugbar&lt;/h3>
+&lt;p>作用是页面底部显示丰富的调试信息&lt;/p>
+&lt;blockquote>
+&lt;p>安装&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ composer require barryvdh/laravel-debugbar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>config/app.php注册ServerProvider&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Barryvdh\Debugbar\ServiceProvider&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>增加Facades&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#39;Debugbar&amp;#39;&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#a6e22e">Barryvdh\Debugbar\Facade&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="barryvdhlaravel-ide-helper">barryvdh/laravel-ide-helper&lt;/h3>
+&lt;p>生成一个php文件，为IDE提供更好的支持&lt;/p>
+&lt;blockquote>
+&lt;p>安装&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ composer require barryvdh/laravel-ide-helper
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>config/app.php注册ServerProvider&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>使用&lt;/p>
+&lt;/blockquote>
+&lt;p>如果使用的是Homestead，ssh登录虚拟机后，在虚拟机执行，否则会找不到数据库而报错&lt;/p>
+&lt;h3 id="svenartisan-view">sven/artisan-view&lt;/h3>
+&lt;p>使用artisan命令生成视图文件&lt;/p>
+&lt;blockquote>
+&lt;p>安装&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ composer require sven/artisan-view
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>config/app.php注册ServerProvider&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-php" data-lang="php">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Sven\ArtisanView\ArtisanViewServiceProvider&lt;/span>&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#a6e22e">class&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>使用&lt;/p>
+&lt;/blockquote>
+&lt;p>生成视图&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ php artisan make:view index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>生成目录下的视图&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ php artisan make:view pages.index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

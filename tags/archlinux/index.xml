@@ -1,21 +1,75 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Archlinux on 代码如歌</title><link>https://insua.github.io/tags/archlinux/</link><description>Recent content in Archlinux on 代码如歌</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 05 Jul 2023 11:31:00 +0800</lastBuildDate><atom:link href="https://insua.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml"/><item><title>2023.7 Archlinux 安装教程</title><link>https://insua.github.io/post/2023/07-05-install-arch/</link><pubDate>Wed, 05 Jul 2023 11:31:00 +0800</pubDate><guid>https://insua.github.io/post/2023/07-05-install-arch/</guid><description>一 基础安装 1.禁用reflector systemctl stop reflector.service 2.确认是否为UEFI模式 ls /sys/firmware/efi/efivars 如果有输出则为UEFI模式
-3.更新系统时钟 timedatectl set-ntp true # 将系统时间与网络时间进行同步 timedatectl status # 检查服务状态 4.更新镜像源 vim /etc/pacman.d/mirrorlist 在最上面添加
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch # 清华大学开源软件镜像站 5.分区与格式化 转换磁盘为 gpt 类型
-lsblk #显示分区情况 找到你想安装的磁盘名称 parted /dev/nvmexn1 #执行parted，进入交互式命令行，进行磁盘类型变更 (parted)mktable #输入mktable New disk label type? gpt #输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可 quit #最后quit退出parted命令行交互 EFI分区: /efi 1G
-Swap分区: 32G
-/分区：剩余
-cfdisk /dev/nvmexn1 # 对安装 archlinux 的磁盘分区 查看分区
-fdisk -l 格式化
-mkswap /dev/nvmexn1pn mkfs.ext4 /dev/nvmexn1pn mkfs.</description></item><item><title>阿米洛在Arch下的键位映射</title><link>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</link><pubDate>Sat, 11 Mar 2023 10:49:57 +0800</pubDate><guid>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</guid><description>阿米洛键盘的F区在 Archlinux 是有问题的，通过 Xmodmap 去修改键位映射
-下载 Xmodmap 文件，修改为隐藏文件，放入 ~ 目录
-修改 ~/.xinitrc，增加代码
-[[ -f ~/.Xmodmap ]] &amp;amp;&amp;amp; xmodmap ~/.Xmodmap</description></item><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>valet-linux的github地址
-valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1
-那么就直接用dnsmasq了
-$ sudo vim /etc/dnsmasq.conf 修改listen-address和address
-listen-address=127.0.0.1 address=/app/127.0.0.1 address=/dev/192.168.10.10 指向dev的是homestead的ip,valet的默认domain修改为app
-修改 /etc/resolv.conf 将
-nameserver 127.0.0.1 加到最上面
-使用
-$ sudo chattr +i /etc/resolv.conf 为其加锁，最后别忘了用systemd将dnsmasq自动启动
-$ sudo systemctl enable dnsmasq valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Archlinux on 代码如歌</title><link>https://insua.github.io/tags/archlinux/</link><description>Recent content in Archlinux on 代码如歌</description><generator>Hugo -- 0.141.0</generator><language>en-us</language><lastBuildDate>Wed, 05 Jul 2023 11:31:00 +0800</lastBuildDate><atom:link href="https://insua.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml"/><item><title>2023.7 Archlinux 安装教程</title><link>https://insua.github.io/post/2023/07-05-install-arch/</link><pubDate>Wed, 05 Jul 2023 11:31:00 +0800</pubDate><guid>https://insua.github.io/post/2023/07-05-install-arch/</guid><description>&lt;h3 id="一-基础安装">一 基础安装&lt;/h3>
+&lt;h4 id="1禁用reflector">1.禁用reflector&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>systemctl stop reflector.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2确认是否为uefi模式">2.确认是否为UEFI模式&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>ls /sys/firmware/efi/efivars
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果有输出则为UEFI模式&lt;/p>
+&lt;h4 id="3更新系统时钟">3.更新系统时钟&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>timedatectl set-ntp true &lt;span style="color:#75715e"># 将系统时间与网络时间进行同步&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timedatectl status &lt;span style="color:#75715e"># 检查服务状态&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="4更新镜像源">4.更新镜像源&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vim /etc/pacman.d/mirrorlist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在最上面添加&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Server &lt;span style="color:#f92672">=&lt;/span> https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch &lt;span style="color:#75715e"># 清华大学开源软件镜像站&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="5分区与格式化">5.分区与格式化&lt;/h4>
+&lt;p>转换磁盘为 gpt 类型&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>lsblk &lt;span style="color:#75715e">#显示分区情况 找到你想安装的磁盘名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>parted /dev/nvmexn1 &lt;span style="color:#75715e">#执行parted，进入交互式命令行，进行磁盘类型变更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span>mktable &lt;span style="color:#75715e">#输入mktable&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New disk label type? gpt &lt;span style="color:#75715e">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>quit &lt;span style="color:#75715e">#最后quit退出parted命令行交互&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>EFI分区: /efi 1G&lt;br>
+Swap分区: 32G&lt;br>
+/分区：剩余&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>cfdisk /dev/nvmexn1 &lt;span style="color:#75715e"># 对安装 archlinux 的磁盘分区&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看分区&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>fdisk -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>格式化&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mkswap /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkfs.ext4 /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkfs.vfat /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="6挂载">6.挂载&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>mount /dev/nvmexn1pn /mnt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /mnt/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mount /dev/nvmexn1pn /mnt/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>swapon /dev/nvmexn1pn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>free -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="7安装系统">7.安装系统&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pacstrap /mnt base base-devel linux linux-firmware
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pacstrap /mnt dhcpcd iwd vim bash-completion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="8生成fstab">8.生成fstab&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /mnt/etc/fsta
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="9chroot">9.chroot&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>arch-chroot /mnt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="10设置时区">10.设置时区&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hwclock --systohc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="11本地化">11.本地化&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>vim /etc/locale.gen
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>反注释 en_US.UTF-8 zh_CN.UTF-8&lt;/p></description></item><item><title>阿米洛在Arch下的键位映射</title><link>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</link><pubDate>Sat, 11 Mar 2023 10:49:57 +0800</pubDate><guid>https://insua.github.io/post/2023/03-11-varmilo-keymap-in-archlinux/</guid><description>&lt;p>阿米洛键盘的F区在 Archlinux 是有问题的，通过 Xmodmap 去修改键位映射&lt;br>
+下载 &lt;a href="https://insua.github.io/file/2023/Xmodmap">Xmodmap&lt;/a> 文件，修改为隐藏文件，放入 ~ 目录&lt;br>
+修改 &lt;strong>~/.xinitrc&lt;/strong>，增加代码&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[[&lt;/span> -f ~/.Xmodmap &lt;span style="color:#f92672">]]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> xmodmap ~/.Xmodmap
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>在Arch上使用Laravel valet</title><link>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</link><pubDate>Sat, 13 May 2017 10:22:57 +0000</pubDate><guid>https://insua.github.io/post/2017/05-13-install-valet-on-arch/</guid><description>&lt;p>valet-linux的github&lt;a href="https://github.com/cpriego/valet-linux">地址&lt;/a>&lt;br>
+valet默认是使用NetWorkManager来管理dnsmasq的，不过我是用netctl来管理网络的，所以默认安装后ping foo.app并不能指向127.0.0.1&lt;br>
+那么就直接用dnsmasq了&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo vim /etc/dnsmasq.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改listen-address和address&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>listen-address&lt;span style="color:#f92672">=&lt;/span>127.0.0.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address&lt;span style="color:#f92672">=&lt;/span>/app/127.0.0.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address&lt;span style="color:#f92672">=&lt;/span>/dev/192.168.10.10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>指向dev的是homestead的ip,valet的默认domain修改为app&lt;/p>
+&lt;/blockquote>
+&lt;p>修改 /etc/resolv.conf
+将&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nameserver 127.0.0.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加到最上面&lt;br>
+使用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo chattr +i /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>为其加锁，最后别忘了用systemd将dnsmasq自动启动&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo systemctl enable dnsmasq
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>valet-linux其他的使用按照github wiki上的操作即可，目前没有发现什么异常&lt;/p></description></item></channel></rss>
